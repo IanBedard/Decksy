@@ -21,6 +21,7 @@ struct DeckDetailView: View {
                             Label("Study \(deck.dueCount) due cards", systemImage: "play.circle.fill")
                         }
                         .disabled(deck.dueCount == 0)
+                        .listRowBackground(DecksyTheme.card)
                     }
 
                     Section("Cards") {
@@ -30,6 +31,8 @@ struct DeckDetailView: View {
                                 systemImage: "rectangle.badge.plus",
                                 description: Text("Add a front and back to start studying.")
                             )
+                            .foregroundStyle(DecksyTheme.card)
+                            .listRowBackground(DecksyTheme.background)
                         } else {
                             ForEach(deck.cards) { card in
                                 VStack(alignment: .leading, spacing: 6) {
@@ -41,6 +44,7 @@ struct DeckDetailView: View {
                                         .lineLimit(2)
                                 }
                                 .padding(.vertical, 4)
+                                .listRowBackground(DecksyTheme.card)
                             }
                             .onDelete { offsets in
                                 store.deleteCards(from: deck.id, at: offsets)

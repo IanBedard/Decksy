@@ -15,6 +15,7 @@ struct ContentView: View {
                         } label: {
                             DeckRow(deck: deck)
                         }
+                        .listRowBackground(DecksyTheme.card)
                     }
                     .onDelete(perform: store.deleteDecks)
                 }
@@ -107,6 +108,8 @@ private struct DueTodayView: View {
                     systemImage: "checkmark.circle",
                     description: Text("Cards you review will return when they are due again.")
                 )
+                .foregroundStyle(DecksyTheme.card)
+                .listRowBackground(DecksyTheme.background)
             } else {
                 ForEach(dueDecks) { deck in
                     NavigationLink {
@@ -114,6 +117,7 @@ private struct DueTodayView: View {
                     } label: {
                         DeckRow(deck: deck)
                     }
+                    .listRowBackground(DecksyTheme.card)
                 }
             }
         }

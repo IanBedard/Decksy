@@ -1,12 +1,19 @@
 import SwiftUI
 
 enum DecksyTheme {
-    static let deepTeal = Color(red: 0.031, green: 0.376, blue: 0.373) // #08605F
-    static let teal = Color(red: 0.090, green: 0.494, blue: 0.537) // #177E89
-    static let slateGreen = Color(red: 0.349, green: 0.514, blue: 0.506) // #598381
-    static let olive = Color(red: 0.557, green: 0.576, blue: 0.427) // #8E936D
-    static let leaf = Color(red: 0.635, green: 0.678, blue: 0.349) // #A2AD59
+    static let midnight = Color(red: 0.035, green: 0.055, blue: 0.102) // #090E1A
+    static let navy = Color(red: 0.071, green: 0.098, blue: 0.180) // #12192E
+    static let violet = Color(red: 0.486, green: 0.302, blue: 1.000) // #7C4DFF
+    static let electricBlue = Color(red: 0.278, green: 0.431, blue: 1.000) // #476EFF
+    static let lavender = Color(red: 0.686, green: 0.596, blue: 1.000) // #AF98FF
+    static let graphite = Color(red: 0.416, green: 0.435, blue: 0.553) // #6A6F8D
 
-    static let background = Color(red: 0.957, green: 0.969, blue: 0.957)
-    static let card = Color.white
+    static let background = midnight
+    static let card = Color(red: 0.985, green: 0.984, blue: 0.992)
+
+    static let deepTeal = midnight
+    static let teal = violet
+    static let slateGreen = graphite
+    static let olive = lavender
+    static let leaf = electricBlue
 }

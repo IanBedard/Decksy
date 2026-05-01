@@ -66,6 +66,7 @@ struct StudyView: View {
                     systemImage: "sparkles",
                     description: Text("Nice work. Come back when more cards are due.")
                 )
+                .foregroundStyle(DecksyTheme.card)
             }
         }
         .padding()
