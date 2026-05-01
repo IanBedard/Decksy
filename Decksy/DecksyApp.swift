@@ -9,6 +9,7 @@ struct DecksyApp: App {
             ContentView()
                 .environmentObject(store)
                 .tint(DecksyTheme.teal)
+                .preferredColorScheme(.light)
         }
     }
 }

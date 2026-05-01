@@ -19,6 +19,7 @@ struct DeckDetailView: View {
                             StudyView(deckID: deck.id)
                         } label: {
                             Label("Study \(deck.dueCount) due cards", systemImage: "play.circle.fill")
+                                .foregroundStyle(DecksyTheme.deepTeal)
                         }
                         .disabled(deck.dueCount == 0)
                         .listRowBackground(DecksyTheme.card)
@@ -31,7 +32,7 @@ struct DeckDetailView: View {
                                 systemImage: "rectangle.badge.plus",
                                 description: Text("Add a front and back to start studying.")
                             )
-                            .foregroundStyle(DecksyTheme.card)
+                            .foregroundStyle(DecksyTheme.deepTeal)
                             .listRowBackground(DecksyTheme.background)
                         } else {
                             ForEach(deck.cards) { card in
@@ -108,6 +109,7 @@ private struct AddCardView: View {
                 }
                 .listRowBackground(DecksyTheme.card)
             }
+            .environment(\.colorScheme, .light)
             .scrollContentBackground(.hidden)
             .background(DecksyTheme.background)
             .navigationTitle("New Card")

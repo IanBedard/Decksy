@@ -1,8 +1,8 @@
 import SwiftUI
 
 enum DecksyTheme {
-    static let midnight = Color(red: 0.118, green: 0.102, blue: 0.184) // #1E1A2F
-    static let navy = Color(red: 0.169, green: 0.145, blue: 0.263) // #2B2543
+    static let midnight = Color(red: 0.953, green: 0.941, blue: 1.000) // #F3F0FF
+    static let navy = Color(red: 0.118, green: 0.102, blue: 0.184) // #1E1A2F
     static let violet = Color(red: 0.486, green: 0.302, blue: 1.000) // #7C4DFF
     static let electricBlue = Color(red: 0.278, green: 0.431, blue: 1.000) // #476EFF
     static let lavender = Color(red: 0.686, green: 0.596, blue: 1.000) // #AF98FF
@@ -24,7 +24,8 @@ enum DecksyTheme {
 extension View {
     func decksyNavigationChrome() -> some View {
         self
-            .toolbarBackground(DecksyTheme.background, for: .navigationBar)
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(DecksyTheme.navy, for: .navigationBar)
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)
     }

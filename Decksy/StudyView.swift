@@ -25,7 +25,7 @@ struct StudyView: View {
             if let deck, let card = currentCard {
                 Text("\(min(currentIndex + 1, dueCards.count)) of \(dueCards.count)")
                     .font(.subheadline)
-                    .foregroundStyle(DecksyTheme.textOnDark.opacity(0.78))
+                    .foregroundStyle(DecksyTheme.slateGreen)
 
                 VStack(spacing: 18) {
                     Text(showingAnswer ? card.back : card.front)
@@ -66,7 +66,7 @@ struct StudyView: View {
                     systemImage: "sparkles",
                     description: Text("Nice work. Come back when more cards are due.")
                 )
-                .foregroundStyle(DecksyTheme.card)
+                .foregroundStyle(DecksyTheme.deepTeal)
             }
         }
         .padding()

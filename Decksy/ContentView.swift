@@ -40,6 +40,7 @@ struct ContentView: View {
                                 .foregroundStyle(DecksyTheme.deepTeal)
                                 .listRowBackground(DecksyTheme.card)
                         }
+                        .environment(\.colorScheme, .light)
                         .scrollContentBackground(.hidden)
                         .background(DecksyTheme.background)
                         .navigationTitle("New Deck")
@@ -78,6 +79,7 @@ struct ContentView: View {
         .tint(DecksyTheme.teal)
         .toolbarBackground(DecksyTheme.navy, for: .tabBar)
         .toolbarBackground(.visible, for: .tabBar)
+        .toolbarColorScheme(.dark, for: .tabBar)
     }
 }
 
@@ -116,7 +118,7 @@ private struct DueTodayView: View {
                     systemImage: "checkmark.circle",
                     description: Text("Cards you review will return when they are due again.")
                 )
-                .foregroundStyle(DecksyTheme.card)
+                .foregroundStyle(DecksyTheme.deepTeal)
                 .listRowBackground(DecksyTheme.background)
             } else {
                 ForEach(dueDecks) { deck in
