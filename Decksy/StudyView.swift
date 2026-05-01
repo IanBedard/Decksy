@@ -25,15 +25,20 @@ struct StudyView: View {
             if let deck, let card = currentCard {
                 Text("\(min(currentIndex + 1, dueCards.count)) of \(dueCards.count)")
                     .font(.subheadline)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(DecksyTheme.slateGreen)
 
                 VStack(spacing: 18) {
                     Text(showingAnswer ? card.back : card.front)
                         .font(.title2.weight(.semibold))
+                        .foregroundStyle(DecksyTheme.deepTeal)
                         .multilineTextAlignment(.center)
                         .frame(maxWidth: .infinity, minHeight: 220)
                         .padding()
-                        .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 16))
+                        .background(DecksyTheme.card, in: RoundedRectangle(cornerRadius: 16))
+                        .overlay {
+                            RoundedRectangle(cornerRadius: 16)
+                                .stroke(DecksyTheme.slateGreen.opacity(0.25), lineWidth: 1)
+                        }
 
                     if showingAnswer {
                         ReviewButtons { grade in
@@ -49,6 +54,7 @@ struct StudyView: View {
                                 .frame(maxWidth: .infinity)
                         }
                         .buttonStyle(.borderedProminent)
+                        .tint(DecksyTheme.teal)
                         .controlSize(.large)
                     }
                 }
@@ -63,6 +69,7 @@ struct StudyView: View {
             }
         }
         .padding()
+        .background(DecksyTheme.background)
         .navigationTitle(deck?.title ?? "Study")
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -74,13 +81,13 @@ private struct ReviewButtons: View {
     var body: some View {
         Grid(horizontalSpacing: 12, verticalSpacing: 12) {
             GridRow {
-                gradeButton("Again", systemImage: "arrow.counterclockwise", tint: .red, grade: .again)
-                gradeButton("Hard", systemImage: "tortoise", tint: .orange, grade: .hard)
+                gradeButton("Again", systemImage: "arrow.counterclockwise", tint: DecksyTheme.olive, grade: .again)
+                gradeButton("Hard", systemImage: "tortoise", tint: DecksyTheme.slateGreen, grade: .hard)
             }
 
             GridRow {
-                gradeButton("Good", systemImage: "hand.thumbsup", tint: .green, grade: .good)
-                gradeButton("Easy", systemImage: "bolt", tint: .blue, grade: .easy)
+                gradeButton("Good", systemImage: "hand.thumbsup", tint: DecksyTheme.teal, grade: .good)
+                gradeButton("Easy", systemImage: "bolt", tint: DecksyTheme.leaf, grade: .easy)
             }
         }
     }

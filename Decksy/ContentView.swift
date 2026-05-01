@@ -18,6 +18,8 @@ struct ContentView: View {
                     }
                     .onDelete(perform: store.deleteDecks)
                 }
+                .scrollContentBackground(.hidden)
+                .background(DecksyTheme.background)
                 .navigationTitle("Decksy")
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
@@ -66,6 +68,7 @@ struct ContentView: View {
                 Label("Today", systemImage: "calendar")
             }
         }
+        .tint(DecksyTheme.teal)
     }
 }
 
@@ -76,13 +79,14 @@ private struct DeckRow: View {
         VStack(alignment: .leading, spacing: 6) {
             Text(deck.title)
                 .font(.headline)
+                .foregroundStyle(DecksyTheme.deepTeal)
 
             HStack(spacing: 12) {
                 Label("\(deck.cards.count) cards", systemImage: "square.on.square")
                 Label("\(deck.dueCount) due", systemImage: "clock")
             }
             .font(.subheadline)
-            .foregroundStyle(.secondary)
+            .foregroundStyle(DecksyTheme.slateGreen)
         }
         .padding(.vertical, 4)
     }
@@ -113,6 +117,8 @@ private struct DueTodayView: View {
                 }
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(DecksyTheme.background)
         .navigationTitle("Due Today")
     }
 }

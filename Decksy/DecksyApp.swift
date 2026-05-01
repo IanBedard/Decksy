@@ -8,6 +8,7 @@ struct DecksyApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(store)
+                .tint(DecksyTheme.teal)
         }
     }
 }

@@ -35,8 +35,9 @@ struct DeckDetailView: View {
                                 VStack(alignment: .leading, spacing: 6) {
                                     Text(card.front)
                                         .font(.headline)
+                                        .foregroundStyle(DecksyTheme.deepTeal)
                                     Text(card.back)
-                                        .foregroundStyle(.secondary)
+                                        .foregroundStyle(DecksyTheme.slateGreen)
                                         .lineLimit(2)
                                 }
                                 .padding(.vertical, 4)
@@ -47,6 +48,8 @@ struct DeckDetailView: View {
                         }
                     }
                 }
+                .scrollContentBackground(.hidden)
+                .background(DecksyTheme.background)
                 .navigationTitle(deck.title)
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
@@ -94,6 +97,8 @@ private struct AddCardView: View {
                         .frame(minHeight: 120)
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(DecksyTheme.background)
             .navigationTitle("New Card")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
