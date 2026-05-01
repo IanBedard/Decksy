@@ -55,6 +55,7 @@ struct DeckDetailView: View {
                 .scrollContentBackground(.hidden)
                 .background(DecksyTheme.background)
                 .navigationTitle(deck.title)
+                .decksyNavigationChrome()
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
@@ -94,16 +95,23 @@ private struct AddCardView: View {
                 Section("Front") {
                     TextEditor(text: $front)
                         .frame(minHeight: 90)
+                        .foregroundStyle(DecksyTheme.deepTeal)
+                        .scrollContentBackground(.hidden)
                 }
+                .listRowBackground(DecksyTheme.card)
 
                 Section("Back") {
                     TextEditor(text: $back)
                         .frame(minHeight: 120)
+                        .foregroundStyle(DecksyTheme.deepTeal)
+                        .scrollContentBackground(.hidden)
                 }
+                .listRowBackground(DecksyTheme.card)
             }
             .scrollContentBackground(.hidden)
             .background(DecksyTheme.background)
             .navigationTitle("New Card")
+            .decksyNavigationChrome()
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button("Cancel") {

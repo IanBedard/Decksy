@@ -22,6 +22,7 @@ struct ContentView: View {
                 .scrollContentBackground(.hidden)
                 .background(DecksyTheme.background)
                 .navigationTitle("Decksy")
+                .decksyNavigationChrome()
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button {
@@ -36,8 +37,13 @@ struct ContentView: View {
                     NavigationStack {
                         Form {
                             TextField("Deck name", text: $newDeckTitle)
+                                .foregroundStyle(DecksyTheme.deepTeal)
+                                .listRowBackground(DecksyTheme.card)
                         }
+                        .scrollContentBackground(.hidden)
+                        .background(DecksyTheme.background)
                         .navigationTitle("New Deck")
+                        .decksyNavigationChrome()
                         .toolbar {
                             ToolbarItem(placement: .cancellationAction) {
                                 Button("Cancel") {
@@ -70,6 +76,8 @@ struct ContentView: View {
             }
         }
         .tint(DecksyTheme.teal)
+        .toolbarBackground(DecksyTheme.navy, for: .tabBar)
+        .toolbarBackground(.visible, for: .tabBar)
     }
 }
 
@@ -124,6 +132,7 @@ private struct DueTodayView: View {
         .scrollContentBackground(.hidden)
         .background(DecksyTheme.background)
         .navigationTitle("Due Today")
+        .decksyNavigationChrome()
     }
 }
 

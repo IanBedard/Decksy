@@ -25,7 +25,7 @@ struct StudyView: View {
             if let deck, let card = currentCard {
                 Text("\(min(currentIndex + 1, dueCards.count)) of \(dueCards.count)")
                     .font(.subheadline)
-                    .foregroundStyle(DecksyTheme.slateGreen)
+                    .foregroundStyle(DecksyTheme.textOnDark.opacity(0.78))
 
                 VStack(spacing: 18) {
                     Text(showingAnswer ? card.back : card.front)
@@ -73,6 +73,7 @@ struct StudyView: View {
         .background(DecksyTheme.background)
         .navigationTitle(deck?.title ?? "Study")
         .navigationBarTitleDisplayMode(.inline)
+        .decksyNavigationChrome()
     }
 }
 
